@@ -94,6 +94,9 @@
     var placeTextMap = {'gym': '健身房', 'swimmingPool': '下午场'};
     $(document).ready(function () {
         var place = (new URLSearchParams(location.search)).get('place');
+        placeText = placeTextMap[place];
+        $("#place").text(placeText);
+
         var myDate = new Date;
         var year = myDate.getFullYear(); //获取当前年
         var mon = myDate.getMonth() + 1; //获取当前月
@@ -118,9 +121,6 @@
         }
 
         $("#timeRange").text('预约时间：' + timeRangeText);
-
-        placeText = placeTextMap[place];
-        $("#place").text(placeText);
     });
 
     function signIn() {
