@@ -119,7 +119,7 @@
 
 <script type="text/javascript">
     (function(){
-        var wait = document.getElementById('wait'),href = 'success.html?place='+(new URLSearchParams(location.search)).get('place');
+        var wait = document.getElementById('wait'),href = 'success.html?place='+(new URLSearchParams(location.search)).get('place')+'&timeRange='+(new URLSearchParams(location.search)).get('timeRange');
         var interval = setInterval(function(){
             var time = --wait.innerHTML;
             if(time <= 0) {

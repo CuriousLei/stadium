@@ -88,23 +88,18 @@
 <script src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        var myDate = new Date;
-        var year = myDate.getFullYear(); //获取当前年
-        var mon = myDate.getMonth() + 1; //获取当前月
-        mon = mon<10?('0' + mon):mon;
-        var date = myDate.getDate(); //获取当前日
-        date = date<10?('0' + date):date;
-        var h = myDate.getHours();//获取当前小时数(0-23)
-        var m = myDate.getMinutes();//获取当前分钟数(0-59)
-        var startH = h + parseInt(m/30);
-        var endH = startH + 1;
-        startH = startH<10?('0' + startH):startH;
-        endH = endH<10?('0' + endH):endH;
-        h = h<10?('0' + h):h;
-        m = m<10?('0' + m):m;
-
-        var timeRangeText = year+'-'+mon+'-'+date+' '+startH+':00-'+endH+':00';
+        var timeRangeText = (new URLSearchParams(location.search)).get('timeRange');
         $("#timeRange").text('预约时间：'+timeRangeText);
+
+        var myDate = new Date;
+        var mon = myDate.getMonth() + 1; //获取当前月
+        mon = mon < 10 ? ('0' + mon) : mon;
+        var date = myDate.getDate(); //获取当前日
+        date = date < 10 ? ('0' + date) : date;
+        var h = myDate.getHours();//获取当前小时数(0-23)
+        h = h < 10 ? ('0' + h) : h;
+        var m = myDate.getMinutes();//获取当前分钟数(0-59)
+        m = m < 10 ? ('0' + m) : m;
         var signTimeText = mon+'-'+date+' '+h+':'+m;
         $("#signTime").text('签到时间：'+signTimeText);
 
@@ -112,7 +107,7 @@
         $("#place").text(place);
     });
     function back() {
-        window.location.href='index.html?place='+(new URLSearchParams(location.search)).get('place')
+
     }
 
 </script>
