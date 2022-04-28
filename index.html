@@ -109,11 +109,11 @@
             endH = endH < 10 ? ('0' + endH) : endH;
             timeRangeText = year + '-' + mon + '-' + date + ' ' + startH + ':00-' + endH + ':00';
         } else if (place === 'swimmingPool') {
-            var t = ((((h-12)*60+m)/90).toFixed(0)*90)/30;
-            var startH = parseInt(t/2) + 12;
-            var endH = parseInt((t+3)/2) + 12;
-            var startMin = t%2===1?'30':'00';
-            var endMin = (t+3)%2===1?'30':'00';
+            var t = ((((h - 12) * 60 + m) / 90).toFixed(0) * 90) / 30;
+            var startH = parseInt(t / 2) + 12;
+            var endH = parseInt((t + 3) / 2) + 12;
+            var startMin = t % 2 === 1 ? '30' : '00';
+            var endMin = (t + 3) % 2 === 1 ? '30' : '00';
             timeRangeText = year + '-' + mon + '-' + date + ' ' + startH + ':' + startMin + '-' + endH + ':' + endMin;
         }
 
